@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Polysong</title>
+  <meta name="description" content="Opening a world of music.">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Polysong">
+  <meta property="og:description" content="Opening a world of music.">
+  <meta property="og:url" content="https://polysong.com/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --bg: #fff;
+      --fg: #000;
+      --accent: #c2410c;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000;
+        --fg: #fff;
+        --accent: #fb923c;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    .mark {
+      width: 5rem;
+      height: auto;
+      margin-bottom: 2rem;
+      overflow: visible;
+      color: var(--fg);
+    }
+    .stalk {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .bud { fill: var(--accent); }
+    .petal { transform: rotate(var(--a)); }
+    @media (prefers-reduced-motion: no-preference) {
+      .stalk {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        animation: draw .8s cubic-bezier(.3,.7,.2,1) forwards;
+      }
+      .bud {
+        transform: scale(0);
+        animation: pop .4s cubic-bezier(.3,1.6,.5,1) .6s forwards;
+      }
+      .petal {
+        transform: rotate(var(--a)) scale(0);
+        opacity: 0;
+        animation: sprout .5s cubic-bezier(.3,1.5,.5,1) forwards;
+        animation-delay: calc(.9s + var(--i) * .14s);
+      }
+      @keyframes draw { to { stroke-dashoffset: 0; } }
+      @keyframes pop { to { transform: scale(1); } }
+      @keyframes sprout { to { transform: rotate(var(--a)) scale(1); opacity: 1; } }
+    }
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin: 0 0 0.75rem;
+    }
+    p {
+      font-size: 0.8125rem;
+      line-height: 1.7;
+      margin: 0;
+      max-width: 26rem;
+      text-wrap: balance;
+    }
+    .contact { margin-top: 1.5rem; }
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    footer {
+      width: 100%;
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 1.5rem;
+      font-size: 0.75rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <svg class="mark" viewBox="-50 -50 100 150" aria-hidden="true">
+      <defs>
+        <g id="note" fill="currentColor">
+          <ellipse cx="0" cy="-21" rx="5.4" ry="4.1" transform="rotate(-22 0 -21)" />
+          <path d="M2.9 -21 V -42.4 C 2.9 -44.2, 5 -44.8, 6.1 -43.6 C 8 -41.6, 12.4 -39.4, 11.5 -33.2 C 11.3 -31.9, 10.2 -31.9, 10.2 -33.1 C 10.4 -36.2, 7.8 -37.4, 6.1 -37.9 C 5.6 -38.1, 5.1 -37.6, 5.1 -36.9 V -21 Z" />
+        </g>
+      </defs>
+      <path class="stalk" pathLength="1" d="M0 100 C -2 84, 3 62, 0 46" />
+      <path class="stalk" pathLength="1" d="M0.4 84 C 6 74, 16 72, 23 74 C 18 82, 8 86, 0.4 84" />
+      <path class="stalk" pathLength="1" d="M0.6 68 C -5 59, -14 57, -20 59 C -16 66, -7 70, 0.6 68" />
+      <use class="petal" href="#note" style="--a: 0deg; --i: 0" />
+      <use class="petal" href="#note" style="--a: 45deg; --i: 1" />
+      <use class="petal" href="#note" style="--a: 90deg; --i: 2" />
+      <use class="petal" href="#note" style="--a: 135deg; --i: 3" />
+      <use class="petal" href="#note" style="--a: 180deg; --i: 4" />
+      <use class="petal" href="#note" style="--a: 225deg; --i: 5" />
+      <use class="petal" href="#note" style="--a: 270deg; --i: 6" />
+      <use class="petal" href="#note" style="--a: 315deg; --i: 7" />
+      <circle class="bud" r="7" />
+    </svg>
+    <h1>Polysong</h1>
+    <p>Opening a world of music.</p>
+    <p class="contact"><a href="mailto:spencer@polysong.com">spencer@polysong.com</a></p>
+  </main>
+  <footer>&copy; <span id="y">2026</span> Polysong</footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
